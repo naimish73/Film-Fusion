@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 // react redux imports
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieData } from "../../redux/movie/movieAction";
+import { fetchMovieData } from "../../actions/movieAction";
 
 const Home = () => {
   const dispatch = useDispatch();
