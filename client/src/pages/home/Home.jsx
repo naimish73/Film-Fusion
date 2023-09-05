@@ -4,6 +4,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieData } from "../../actions/movieAction";
 
+// import scss file
+import styles from "./style.module.scss";
+
 const Home = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.movie.isLoading);
@@ -12,7 +15,7 @@ const Home = () => {
   const movieData = useSelector((state) => state.movie.data);
 
   return (
-    <div>
+    <div className={styles.home}>
       Status:
       {loading && <span> loading ...</span>}
       {success === false && <span> Error, {errorMessage}</span>}
@@ -29,7 +32,37 @@ const Home = () => {
         )}
         {Array.isArray(movieData.results) &&
           movieData.results.length > 0 &&
-          movieData.results.map((items, key) => <div id={key}>{items}</div>)}
+          movieData.results.map((items, key) => (
+            <div id={key}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                }}
+              >
+                {console.log(items.primaryImage.url)}
+                {true && (
+                  <Image
+                    src={items.primaryImage.url}
+                    alt="image from api"
+                    height="300px"
+                    width="500px"
+                  />
+                )}
+
+                <p>{items.titleType.text}</p>
+              </div>
+            </div>
+          ))}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        ></div>
       </div>
     </div>
   );
