@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // importing actions
-import { fetchMovieData } from "./movieAction";
+import { fetchMovieData } from "../actions/movieAction";
 
 const movieSlice = createSlice({
   name: "movie",

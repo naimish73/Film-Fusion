@@ -11,7 +11,7 @@ import "./index.css";
 import App from "./App.jsx";
 
 // redux imports
-import store from "./redux/store";
+import store from "./store";
 import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
