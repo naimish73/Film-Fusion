@@ -29,9 +29,7 @@ const Home = () => {
         )}
         {Array.isArray(movieData.results) &&
           movieData.results.length > 0 &&
-          movieData.results.map((items, key) => (
-            <div id={key}>{items.title}</div>
-          ))}
+          movieData.results.map((items, key) => <div id={key}>{items}</div>)}
       </div>
     </div>
   );
