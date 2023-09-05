@@ -1,5 +1,6 @@
 const express = require("express");
 const userRouter = require("./routes/userRouter");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express();
@@ -21,3 +22,13 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
 });
+
+const db = mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+if (db) {
+  console.log("MongoDB connected");
+} else {
+  console.log("Retry");
+}
